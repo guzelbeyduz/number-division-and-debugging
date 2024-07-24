@@ -1,2 +1,30 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+def get_number_input(prompt):
+    while True:
+        try:
+            value = input(prompt)
+            number = int(value)
+            return number
+        except ValueError:
+            print("Geçersiz giriş! Lütfen sadece sayı girin.")
+
+def divide_numbers(sayı1, sayı2):
+    try:
+        result = sayı1 / sayı2
+    except ZeroDivisionError:
+        print("Hata: Sıfıra bölme işlemi yapılamaz.")
+        return None
+    except Exception as e:
+        print(f"Beklenmedik bir hata oluştu: {e}")
+        return None
+    else:
+        return result
+    finally:
+        print("Bölme işlemi tamamlandı.")
+
+ilk_sayı = get_number_input("ilk sayı: ")
+ikinci_sayı = get_number_input("ikinci sayı: ")
+
+sonuç = divide_numbers(ilk_sayı, ikinci_sayı)
+if sonuç is not None:
+    print(f"{ilk_sayı} / {ikinci_sayı} = {sonuç}")
+
